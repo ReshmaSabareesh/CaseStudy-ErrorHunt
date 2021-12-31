@@ -93,7 +93,7 @@ authorsRouter.post('/edit', function (req, res) {
 
 
 //router to update author
-authorsRouter.post('/update', function (req, res) {//part2 point9
+authorsRouter.post('/update', function (req, res) {//part#2 point9
 
     authordata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {
         if (err) {

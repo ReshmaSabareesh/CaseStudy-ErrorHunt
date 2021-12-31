@@ -1,11 +1,11 @@
 //Part#1 point1,changed main as app.js in package.json
 const express = require('express'); 
 const path = require ('path'); 
-const bodyparser = require('body-parser');
+const bodyparser = require('body-parser');//part#1 point2
 const cors = require('cors');
 
 
-const nav = require('./src/data/nav');
+const nav = require('./src/data/nav');//part#2 point6
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
 const homeRouter = require('./src/routes/homerouter')(nav);//Part #1 Point3
@@ -19,7 +19,7 @@ app.set('views','./src/views');
 app.set('view engine','ejs'); 
 
 
-app.use(cors()); //Part#1 Point2
+app.use(cors()); //Part#2 Point7
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname , '/public'))); 
@@ -34,10 +34,7 @@ app.use('/authors',authorsRouter);
 
 app.get('/',function(req,res){
 
-    res.render('index',{
-        nav,//calling nav
-        title:"Library"
-    });
+    res.render('index',{nav});//part#2 point6
     
 });
 
@@ -46,5 +43,5 @@ app.get('/',function(req,res){
 
 
 app.listen(process.env.PORT||5000,()=>{
-    console.log("Server Ready on 5000");//PART #1 POINT5
+    console.log("Server Ready on 5000");//Part #1 Point5
 });
