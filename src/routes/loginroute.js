@@ -11,8 +11,8 @@ loginRouter.get('/',function(req,res){
 
 loginRouter.get("/check",function(req,res){
     var checkuser = {
-        uid:req.query("uid"),
-        pwd:req.query("pwd")
+        uid:req.query.uid,//part#2 point10
+        pwd:req.query.pwd
     };
     
     console.log(checkuser);
